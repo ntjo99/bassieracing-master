@@ -8,7 +8,7 @@ from noise import *
 import pygame
 import random
 from stats import *
-import tkinter.messagebox
+# import tkinter.messagebox
 from utils import *
 import neat
 
@@ -454,16 +454,16 @@ class Map:
         try:
             data = json.loads(jsonString)
         except:
-            tkinter.messagebox.showinfo('Corrupt JSON file!', 'This JSON file is corrupt\nYou can try to fix it with JSONLint (https://jsonlint.com/)')
+            # tkinter.messagebox.showinfo('Corrupt JSON file!', 'This JSON file is corrupt\nYou can try to fix it with JSONLint (https://jsonlint.com/)')
             return
 
         if  'type' not in data or data['type'] != 'BassieRacing Map':
-            tkinter.messagebox.showinfo('Not a BassieRacing map!', 'This JSON file is not a BassieRacing Map')
+            # tkinter.messagebox.showinfo('Not a BassieRacing map!', 'This JSON file is not a BassieRacing Map')
             return
 
-        if checkVersion(data['version']):
-            tkinter.messagebox.showinfo('Map uses different game version!', 'This map uses a different game version, some incompatibility may occur\n\n' +
-                'Map game version: ' + data['version'] + '\nThis game version: ' + Config.VERSION)
+        # if checkVersion(data['version']):
+            # tkinter.messagebox.showinfo('Map uses different game version!', 'This map uses a different game version, some incompatibility may occur\n\n' +
+                # 'Map game version: ' + data['version'] + '\nThis game version: ' + Config.VERSION)
 
         map = Map(data['id'], data['name'], data['width'], data['height'])
 
@@ -659,7 +659,8 @@ class Map:
         # Find map finish
         if not self.find_finish():
             if showNoErrorMessages:
-                tkinter.messagebox.showinfo('Map has no finish!', 'This map has no finish, this can cause the game to crash')
+                pass
+                # tkinter.messagebox.showinfo('Map has no finish!', 'This map has no finish, this can cause the game to crash')
             self.finish = {
                 'x': self.width // 2,
                 'y': self.height // 2,
@@ -707,8 +708,8 @@ class Map:
 
                         x += width
 
-        if len(self.checkpoints) == 0 and showNoErrorMessages:
-            tkinter.messagebox.showinfo('Map has no checkpoints!', 'This map has no checkpoints, this can cause the game to crash')
+        # if len(self.checkpoints) == 0 and showNoErrorMessages:
+            # tkinter.messagebox.showinfo('Map has no checkpoints!', 'This map has no checkpoints, this can cause the game to crash')
 
         # Blend track tiles
         self.blendedTrack = [ [ 0 for x in range(self.width) ] for y in range(self.height) ]
