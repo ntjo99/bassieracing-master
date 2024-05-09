@@ -14,7 +14,7 @@ os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = 'hide'
 from pages import *
 import pygame
 import time
-import tkinter
+# import tkinter
 import signal
 import urllib.request
 from utils import *
@@ -160,8 +160,8 @@ class Game:
         self.tockSound = pygame.mixer.Sound('assets/sounds/tock.wav')
 
         # Create hidden Tkinter window for file dialogs and error messages
-        self.tkinter_window = tkinter.Tk()
-        self.tkinter_window.withdraw()
+        # self.tkinter_window = tkinter.Tk()
+        # self.tkinter_window.withdraw()
 
         # Detect new version
         self.detect_new_version()
