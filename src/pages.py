@@ -6,7 +6,7 @@ import math
 from objects import *
 import os
 import random
-import tkinter.filedialog
+# import tkinter.filedialog
 from utils import *
 import webbrowser
 from widgets import *
@@ -321,11 +321,11 @@ class SelectMapPage(Page):
             self.game.page = PlayPage(self.game)
 
     # Load button clicked
-    def load_button_clicked(self):
-        file_path = tkinter.filedialog.askopenfilename(title='Select a BassieRacing Map to load...', filetypes=[ ( 'JSON files', '*.json' ) ])
-        if file_path:
-            self.game.focus()
-            self.mapSelector.load_map(file_path)
+    # def load_button_clicked(self):
+    #     # file_path = tkinter.filedialog.askopenfilename(title='Select a BassieRacing Map to load...', filetypes=[ ( 'JSON files', '*.json' ) ])
+    #     if file_path:
+    #         self.game.focus()
+    #         self.mapSelector.load_map(file_path)
 
     # Continue button clicked
     def continue_button_clicked(self):
@@ -874,33 +874,33 @@ class EditorPage(Page):
         self.mapEditor.center_camera()
 
     # Open button clicked
-    def open_button_clicked(self):
-        file_path = tkinter.filedialog.askopenfilename(title='Select a BassieRacing Map to open...', filetypes=[ ( 'JSON files', '*.json' ) ])
-        if file_path:
-            self.game.settings['map-editor']['last-path'] = file_path
+    # def open_button_clicked(self):
+    #     # file_path = tkinter.filedialog.askopenfilename(title='Select a BassieRacing Map to open...', filetypes=[ ( 'JSON files', '*.json' ) ])
+    #     if file_path:
+    #         self.game.settings['map-editor']['last-path'] = file_path
 
-            pygame.display.set_caption(file_path + ' - BassieRacing')
-            self.game.focus()
+    #         pygame.display.set_caption(file_path + ' - BassieRacing')
+    #         self.game.focus()
 
-            self.map = Map.load_from_file(file_path)
-            if self.map != None:
-                self.mapEditor.map = self.map
-                self.mapEditor.center_camera()
+    #         self.map = Map.load_from_file(file_path)
+    #         if self.map != None:
+    #             self.mapEditor.map = self.map
+    #             self.mapEditor.center_camera()
 
     # Save button clicked
-    def save_button_clicked(self):
-        if self.game.settings['map-editor']['last-path'] == None:
-            file_path = tkinter.filedialog.asksaveasfilename(title='Select a location to save the BassieRacing Map...', filetypes=[ ( 'JSON files', '*.json' ) ], defaultextension='.json')
-            if file_path:
-                self.game.settings['map-editor']['last-path'] = file_path
+    # def save_button_clicked(self):
+    #     if self.game.settings['map-editor']['last-path'] == None:
+    #         file_path = tkinter.filedialog.asksaveasfilename(title='Select a location to save the BassieRacing Map...', filetypes=[ ( 'JSON files', '*.json' ) ], defaultextension='.json')
+    #         if file_path:
+    #             self.game.settings['map-editor']['last-path'] = file_path
 
-                pygame.display.set_caption(file_path + ' - BassieRacing')
-                self.game.focus()
+    #             pygame.display.set_caption(file_path + ' - BassieRacing')
+    #             self.game.focus()
 
-                self.map.blend_track(True)
+    #             self.map.blend_track(True)
 
-        if self.game.settings['map-editor']['last-path'] != None:
-            self.map.save_to_file(self.game.settings['map-editor']['last-path'])
+    #     if self.game.settings['map-editor']['last-path'] != None:
+    #         self.map.save_to_file(self.game.settings['map-editor']['last-path'])
 
     # Grid toggle button changed
     def grid_togglebutton_changed(self, active):
